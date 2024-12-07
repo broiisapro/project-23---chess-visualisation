@@ -60,3 +60,5 @@ This project visualizes a 3D chessboard with simplified chess pieces using Pytho
 - Implement piece-specific rules for placement or movement visualization.
 
 ---
+
+readme made with AI assistance
