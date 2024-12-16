@@ -72,25 +72,21 @@ def create_3d_chessboard_with_pieces():
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
-    # Create the chessboard with green and beige squares
     size = 8
     for i in range(size):
         for j in range(size):
             color = '#DDB88C' if (i + j) % 2 == 0 else '#3B7A57'  # Beige and green
             ax.bar3d(i, j, 0, 1, 1, 0.05, color=color, shade=True)
 
-    # Define piece positions and types
     piece_types = [draw_king, draw_queen, draw_rook, draw_bishop, draw_knight, draw_pawn]
     piece_positions = [(i, j) for i in range(size) for j in range(size)]
     random.shuffle(piece_positions)
 
-    # Place 16 pieces (example)
     for idx, position in enumerate(piece_positions[:16]):
         piece_type = random.choice(piece_types)
         piece_color = 'black' if idx % 2 == 0 else 'white'
         piece_type(ax, (position[0] + 0.5, position[1] + 0.5), piece_color)
 
-    # Adjust view
     ax.view_init(elev=60, azim=30)  # Adjusted elevation and angle
     ax.set_xlim([0, size])
     ax.set_ylim([0, size])
